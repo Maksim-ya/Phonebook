@@ -50,7 +50,7 @@
             <version>1.9.6.2</version>
         </dependency>
 
-        <!--
+
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
@@ -62,7 +62,7 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-         -->
+
 
 
         <dependency>
