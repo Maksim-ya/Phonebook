@@ -28,10 +28,10 @@ public class Note {
     private String telDomastic;
 
     @Column(name = "Address")
-    private Double address;
+    private String address;
 
-    @Column(name = "email")
-    private Double email;
+    @Column(name = "e-mail")
+    private String email;
 
     public long getId() {
         return id;
@@ -81,19 +81,19 @@ public class Note {
         this.telDomastic = telDomastic;
     }
 
-    public Double getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Double address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public Double getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(Double email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 

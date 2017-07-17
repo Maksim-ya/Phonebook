@@ -1,9 +1,3 @@
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
-<%@ page session="false" %>
 <html>
 <head>
     <title>My Notes page</title>
@@ -15,39 +9,71 @@
 <br/>
 <br/>
 
-<h1>Employee List</h1>
-
-<c:if test="${!empty listEmployees}">
-    <table class="tg">
-        <tr>
-            <th width="80">ID</th>
-            <th width="120">First Name</th>
-            <th width="120">Last Name</th>
-            <th width="120">Position</th>
-            <th width="120">Salary</th>
-            <th width="60">Edit</th>
-            <th width="60">Delete</th>
-        </tr>
-        <c:forEach items="${listEmployees}" var="employee">
-            <tr>
-                <td><a href="/employeedata/${employee.id}" target="_blank">${employee.id}</a></td>
-                <td>${employee.firstName}</td>
-                <td>${employee.lastName}</td>
-                <td>${employee.position}</td>
-                <td>${employee.salary}</td>
-                <td><a href="<c:url value='/edit/${employee.id}'/>">Edit</a></td>
-                <td><a href="<c:url value='/remove/${employee.id}'/>">Delete</a></td>
-            </tr>
-        </c:forEach>
-    </table>
-</c:if>
+<h1>Notes List</h1>
 
 
-<h1>Add a Employee</h1>
+<table class="table table-striped">
+    <tr>
+        <th width="80">ID</th>
+        <th width="120">Last Name</th>
+        <th width="120">First Name</th>
+        <th width="120">Middle Name</th>
+        <th width="120">Mob.tel.</th>
+        <th width="120">Dom.tel.</th>
+        <th width="120">Address</th>
+        <th width="120">E-mail</th>
+        <th width="60">Edit</th>
+        <th width="60">Delete</th>
+    </tr>
 
-<c:url var="addAction" value="/employees/add"/>
+    <%--<c:if test="${!empty listEmployees}">--%>
+    <%--<a th:if="!${all}" th:href="@{/ticket(all=true)}">All</a>--%>
+    <%--<a th:if="${all}" th:href="@{/ticket}">Not resolved</a>--%>
+    <%--<td th:if="${note.id!= null}" th:href="@{}">ID</td>--%>
 
-<form:form action="${addAction}" commandName="employee">
+
+    <tbody>
+
+    <tr th:each="note : ${listNotes}">
+
+        <td th:text="${note.id}"></td>
+        <td th:text="${note.lastName}"></td>
+        <td th:text="${note.firstName}"></td>
+        <td th:text="${note.middleName}"></td>
+        <td th:text="${note.telMobile}"></td>
+        <td th:text="${note.telDomastic}"></td>
+        <td th:text="${note.address}"></td>
+        <td th:text="${note.email}"></td>
+        <td><a th:href="@{/edit/${note.id})}"> Edit</a></td>
+        <td><a th:href="@{/remove/${note.id})}"> Delete</a></td>
+
+        <%--<td>--%>
+        <%--<a th:style="${ticket.resolveDate != null}?'text-decoration:line-through;':''"--%>
+        <%--th:href="@{/ticket/{id}/view(id=${ticket.id})}" th:text="${ticket.issue}"></a>--%>
+        <%--</td>--%>
+
+    </tr>
+    </tbody>
+</table>
+
+
+<h1>Add a Note</h1>
+
+
+
+<%--<c:url var="hotelsUrl" value="/hotels"/>--%>
+<%--<form:form modelAttribute="searchCriteria" action="${hotelsUrl}" method="get" cssClass="inline">--%>
+
+    <%--<form action="#" th:object="${searchCriteria}" th:action="@{/hotels}" method="get" class="inline">--%>
+
+
+    <%--<c:url var="addAction" value="/employees/add"/>--%>
+<%--<form:form action="${addAction}" commandName="employee">--%>
+
+
+
+    <form action="#" th:object="${searchCriteria}" th:action="@{/notes/add}" commandName="employee">
+
     <table>
         <c:if test="${!empty employee.firstName}">
             <tr>
