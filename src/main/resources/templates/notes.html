@@ -7,7 +7,7 @@
 
 </head>
 <body>
-<a href="../../index.jsp">Back to main menu</a>
+<a href="site/index.html">Back to main menu</a>
 
 <br/>
 <br/>
@@ -29,10 +29,10 @@
         <th width="60">Delete</th>
     </tr>
 
-    <%--<c:if test="${!empty listEmployees}">--%>
-    <%--<a th:if="!${all}" th:href="@{/ticket(all=true)}">All</a>--%>
-    <%--<a th:if="${all}" th:href="@{/ticket}">Not resolved</a>--%>
-    <%--<td th:if="${note.id!= null}" th:href="@{}">ID</td>--%>
+    <!--<%&#45;&#45;<c:if test="${!empty listEmployees}">&#45;&#45;%>-->
+    <!--<%&#45;&#45;<a th:if="!${all}" th:href="@{/ticket(all=true)}">All</a>&#45;&#45;%>-->
+    <!--<%&#45;&#45;<a th:if="${all}" th:href="@{/ticket}">Not resolved</a>&#45;&#45;%>-->
+    <!--<%&#45;&#45;<td th:if="${note.id!= null}" th:href="@{}">ID</td>&#45;&#45;%>-->
 
 
     <tbody>
@@ -50,10 +50,10 @@
         <td><a th:href="@{/edit/${note.id})}"> Edit</a></td>
         <td><a th:href="@{/remove/${note.id})}"> Delete</a></td>
 
-        <%--<td>--%>
-        <%--<a th:style="${ticket.resolveDate != null}?'text-decoration:line-through;':''"--%>
-        <%--th:href="@{/ticket/{id}/view(id=${ticket.id})}" th:text="${ticket.issue}"></a>--%>
-        <%--</td>--%>
+        <!--<%&#45;&#45;<td>&#45;&#45;%>-->
+        <!--<%&#45;&#45;<a th:style="${ticket.resolveDate != null}?'text-decoration:line-through;':''"&#45;&#45;%>-->
+        <!--<%&#45;&#45;th:href="@{/ticket/{id}/view(id=${ticket.id})}" th:text="${ticket.issue}"></a>&#45;&#45;%>-->
+        <!--<%&#45;&#45;</td>&#45;&#45;%>-->
 
     </tr>
     </tbody>

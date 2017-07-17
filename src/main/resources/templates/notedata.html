@@ -23,7 +23,7 @@ xmlns:th="http://www.thymeleaf.org">>
     </tr>
 
 
-    <tr th:each="note : listNotes">
+    <tr th:each="note : ${listNotes} ">
 
         <td th:text="${note.id}"></td>
         <td th:text="${note.lastName}"></td>

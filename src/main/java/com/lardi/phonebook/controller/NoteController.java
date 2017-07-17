@@ -4,6 +4,7 @@ import com.lardi.phonebook.entities.Note;
 import com.lardi.phonebook.service.NoteService;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,10 +16,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class NoteController {
     private NoteService noteService;
 
-//    @Autowired(required = true)
-//    public void setNoteService (NoteService noteService){
-//        this.noteService= noteService;
-//    }
+
+    @Autowired(required = true)
+    public void setNoteService (NoteService noteService){
+        this.noteService= noteService;
+    }
 
     @RequestMapping(value = "notes", method = RequestMethod.GET)
     public String listNotes(Model model) {
@@ -26,6 +28,12 @@ public class NoteController {
         model.addAttribute("listNotes", this.noteService.listNotes());
         return "note";
     }
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    public String index(Model model) {
+//        model.addAttribute("phoneBalances", (List<PhoneBalance>) phoneBalanceRepository.findByCurrent(true));
+//        return "index";
+//    }
+
 
     @RequestMapping (value = "/notes/add", method = RequestMethod.POST)
     public  String addNote(@ModelAttribute("note") Note note){
@@ -39,8 +47,8 @@ public class NoteController {
 
     @RequestMapping("edit/{id}")
     public  String editNote(@PathVariable("id") int id, Model model){
-        model.addAttribute("employee",this.noteService.getNoteById(id));
-        model.addAttribute("listEmployees", this.noteService.listNotes());
+        model.addAttribute("note",this.noteService.getNoteById(id));
+        model.addAttribute("listNotes", this.noteService.listNotes());
         return "notes";
     }
 
