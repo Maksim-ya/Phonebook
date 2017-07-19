@@ -29,11 +29,6 @@
         <th width="60">Delete</th>
     </tr>
 
-    <!--<%&#45;&#45;<c:if test="${!empty listEmployees}">&#45;&#45;%>-->
-    <!--<%&#45;&#45;<a th:if="!${all}" th:href="@{/ticket(all=true)}">All</a>&#45;&#45;%>-->
-    <!--<%&#45;&#45;<a th:if="${all}" th:href="@{/ticket}">Not resolved</a>&#45;&#45;%>-->
-    <!--<%&#45;&#45;<td th:if="${note.id!= null}" th:href="@{}">ID</td>&#45;&#45;%>-->
-
 
     <tbody>
 
@@ -50,10 +45,6 @@
         <td><a th:href="@{/edit/${note.id})}"> Edit</a></td>
         <td><a th:href="@{/remove/${note.id})}"> Delete</a></td>
 
-        <!--<%&#45;&#45;<td>&#45;&#45;%>-->
-        <!--<%&#45;&#45;<a th:style="${ticket.resolveDate != null}?'text-decoration:line-through;':''"&#45;&#45;%>-->
-        <!--<%&#45;&#45;th:href="@{/ticket/{id}/view(id=${ticket.id})}" th:text="${ticket.issue}"></a>&#45;&#45;%>-->
-        <!--<%&#45;&#45;</td>&#45;&#45;%>-->
 
     </tr>
     </tbody>
@@ -64,86 +55,63 @@
 
 
 
-<%--<c:url var="hotelsUrl" value="/hotels"/>--%>
-<%--<form:form modelAttribute="searchCriteria" action="${hotelsUrl}" method="get" cssClass="inline">--%>
+            <form action="#" th:action="@{/notes/add}" th:object="${note}" method="post">
 
-    <%--<form action="#" th:object="${searchCriteria}" th:action="@{/hotels}" method="get" class="inline">--%>
+                <table>
 
+                    <tr>
+                        <td>Note Id</td>
+                        <td>input type= "text" th:field = "*{id}" readonly="readonly" hidden = "hidden"</td>
 
-    <%--<c:url var="addAction" value="/employees/add"/>--%>
-<%--<form:form action="${addAction}" commandName="employee">--%>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>input type= "text" th:field = "*{lastName}" </td>
 
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td>input type= "text" th:field = "*{firstName}" </td>
 
+                    </tr>
+                    <tr>
+                        <td>Middle Name</td>
+                        <td>input type= "text" th:field = "*{middleName}" </td>
 
-    <form action="#" th:object="${searchCriteria}" th:action="@{/notes/add}" commandName="employee">
+                    </tr>
+                    <tr>
+                        <td>Mobile telephone</td>
+                        <td>input type= "text" th:field = "*{telMobile}" </td>
 
-    <table>
-        <c:if test="${!empty employee.firstName}">
-            <tr>
-                <td>
-                    <form:label path="id">
-                        <spring:message text="ID"/>
-                    </form:label>
-                </td>
-                <td>
-                    <form:input path="id" readonly="true" size="8" disabled="true"/>
-                    <form:hidden path="id"/>
-                </td>
-            </tr>
-        </c:if>
-        <tr>
-            <td>
-                <form:label path="firstName">
-                    <spring:message text="FirstName"/>
-                </form:label>
-            </td>
-            <td>
-                <form:input path="firstName"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form:label path="lastName">
-                    <spring:message text="LastName"/>
-                </form:label>
-            </td>
-            <td>
-                <form:input path="lastName"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form:label path="position">
-                    <spring:message text="Position"/>
-                </form:label>
-            </td>
-            <td>
-                <form:input path="position"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form:label path="salary">
-                    <spring:message text="Salary"/>
-                </form:label>
-            </td>
-            <td>
-                <form:input path="salary"/>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <c:if test="${!empty employee.firstName}">
-                    <input type="submit"
-                           value="<spring:message text="Edit Employee"/>"/>
-                </c:if>
-                <c:if test="${empty employee.firstName}">
-                    <input type="submit"
-                           value="<spring:message text="Add Employee"/>"/>
-                </c:if>
-            </td>
-        </tr>
-    </table>
-</form:form>
+                    </tr>
+                    <tr>
+                        <td>Domastic telephone</td>
+                        <td>input type= "text" th:field = "*{telDomastic}" </td>
+
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>input type= "text" th:field = "*{address}" </td>
+
+                    </tr>
+                    <tr>
+                        <td>e-mail</td>
+                        <td>input type= "text" th:field = "*{email}" </td>
+
+                    </tr>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+
+                                <input type="submit" value= "Edit Note"/>"/>
+
+                                <input type="submit"
+                                       value="Add Note"/>"/>
+                            </c:if>
+                        </td>
+                    </tr>
+                </table>
+        </form>
 </body>
 </html>

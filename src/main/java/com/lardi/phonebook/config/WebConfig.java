@@ -18,24 +18,61 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 
 
 
+
+@EnableWebMvc
 @Configuration
+@ComponentScan(basePackages = "com.lardi.phonebook.config")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-       registry.addRedirectViewController("/", "/site/index");
-
-        registry.addViewController("/site/index");
-//                .setViewName("site/index");
-        registry.addViewController("/")
-               .setViewName("site/index");
-        registry.addViewController("site/notedata")
-                .setViewName("notedata");
-        registry.addViewController("site/notes")
-                .setViewName("notes");
+    @Bean
+    public TemplateResolver templateResolver(){
+        ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
+        templateResolver.setPrefix("/WEB-INF/view/");
+        templateResolver.setSuffix(".html");
+        //templateResolver.setTemplateMode("HTML5");
+        return templateResolver;
     }
 
+    @Bean
+    public SpringTemplateEngine templateEngine()
+    {
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.setTemplateResolver(templateResolver());
+        return templateEngine;
+    }
+
+    @Bean
+    public ViewResolver getViewResolver() {
+        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
+        resolver.setTemplateEngine(templateEngine());
+        resolver.setOrder(1);
+        return resolver;
+    }
+
+
 }
+
+
+
+
+//@Configuration
+//public class WebConfig extends WebMvcConfigurerAdapter {
+//
+//    @Override
+//    public void addViewControllers(ViewControllerRegistry registry) {
+//       registry.addRedirectViewController("/", "/site/index");
+//
+//        registry.addViewController("/site/index");
+////                .setViewName("site/index");
+//        registry.addViewController("/")
+//               .setViewName("site/index");
+//        registry.addViewController("site/notedata")
+//                .setViewName("notedata");
+//        registry.addViewController("site/notes")
+//                .setViewName("notes");
+//    }
+//
+//}
 
 
 
