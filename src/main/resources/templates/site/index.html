@@ -1,15 +1,15 @@
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lardi.com</title>
 </head>
 <body>
 <h3>Maksim-ya</h3>
 <br/>
-<a href="<c:url value="/notes"/>" target="_blank">My List of Notes </a>
+<p>Please click <a th:href="@{/notes}">here</a> to see My List of Notes.</p>
+<!--<a th:href="@{/notes}"/> My List of Notes </a>-->
 <br/>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:th="http://www.thymeleaf.org">>
+xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>NoteeData</title>
+    <title>NoteData</title>
 
 
 
@@ -23,7 +23,9 @@ xmlns:th="http://www.thymeleaf.org">>
     </tr>
 
 
+
     <tr th:each="note : ${listNotes} ">
+
 
         <td th:text="${note.id}"></td>
         <td th:text="${note.lastName}"></td>
