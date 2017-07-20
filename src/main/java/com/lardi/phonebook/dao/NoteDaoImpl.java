@@ -50,7 +50,7 @@ public class NoteDaoImpl implements  NoteDao {
     @Override
     public List<Note> listNotes() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Note> noteList = session.createQuery("from Note").list();
+        List<Note> noteList = session.createQuery("from Notes").list();
 
         return noteList;
     }

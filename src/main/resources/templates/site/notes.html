@@ -7,7 +7,7 @@
 
 </head>
 <body>
-<a href="../../../resources/templates/site/index.html">Back to main menu</a>
+<a href="../../../resources/templates/site/index1.html">Back to main menu</a>
 
 <br/>
 <br/>
@@ -30,9 +30,7 @@
     </tr>
 
 
-    <tbody>
-
-    <tr th:each="note : ${listNotes}">
+   <tr th:each="note : ${listNotes}">
 
         <td th:text="${note.id}"></td>
         <td th:text="${note.lastName}"></td>
@@ -47,10 +45,10 @@
 
 
     </tr>
-    </tbody>
+
 </table>
 
-
+<p>Please click <a th:href="@{/site/index1}">here</a> to see My List of Notes.</p>
 <h1>Add a Note</h1>
 
 

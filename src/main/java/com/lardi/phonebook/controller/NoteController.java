@@ -3,6 +3,7 @@ package com.lardi.phonebook.controller;
 import com.lardi.phonebook.entities.Note;
 import com.lardi.phonebook.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,13 +11,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class NoteController {
+
+
     private NoteService noteService;
 
+    @Autowired(required = true)
 
-    @Autowired()
     public void setNoteService (NoteService noteService){
         this.noteService= noteService;
     }
+
+
+
 
     @RequestMapping(value = "notes", method = RequestMethod.GET)
     public String listNotes(Model model) {

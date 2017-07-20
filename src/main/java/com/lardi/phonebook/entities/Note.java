@@ -4,7 +4,7 @@ package com.lardi.phonebook.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Notes")
+@Table(name = "notes")
 public class Note {
 
     @Id
@@ -12,25 +12,25 @@ public class Note {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "Last_Name")
+    @Column(name = "lastName")
     private String lastName;
 
-    @Column(name = "First_Name")
+    @Column(name = "firstName")
     private String firstName;
 
-    @Column(name = "Middle_Name")
+    @Column(name = "middleName")
     private String middleName;
 
-    @Column(name = "Mobile telephone")
+    @Column(name = "telMobile")
     private String telMobile;
 
-    @Column(name = "Domastic telephone")
+    @Column(name = "telDomastic")
     private String telDomastic;
 
-    @Column(name = "Address")
+    @Column(name = "address")
     private String address;
 
-    @Column(name = "e-mail")
+    @Column(name = "email")
     private String email;
 
     public long getId() {
