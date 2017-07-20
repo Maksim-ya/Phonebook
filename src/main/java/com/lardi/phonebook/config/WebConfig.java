@@ -24,7 +24,7 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 //    @Bean
 //    public TemplateResolver templateResolver(){
 //        ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
-//        templateResolver.setPrefix("/WEB-INF/view/");
+//        templateResolver.setPrefix("../../../resources/templates/site/");
 //        templateResolver.setSuffix(".html");
 //        templateResolver.setTemplateMode("HTML5");
 //        return templateResolver;
@@ -45,21 +45,6 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 //        resolver.setOrder(1);
 //        return resolver;
 //    }
-//
-//    @Override
-//    public void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addRedirectViewController("/", "/site/index1");
-//
-//        registry.addViewController("/site/index1")
-//                .setViewName("site/index1");
-//        registry.addViewController("/")
-//                .setViewName("site/index1");
-//        registry.addViewController("site/notedata")
-//                .setViewName("notedata");
-//        registry.addViewController("site/notes")
-//                .setViewName("notes");
-//    }
-//
 //}
 
 
@@ -69,17 +54,16 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-       registry.addRedirectViewController("/", "/site/notes");
+       registry.addRedirectViewController("/", "/site/index1");
 
         registry.addViewController("/site/notes")
                 .setViewName("site/notes");
-        registry.addViewController("/")
-               .setViewName("site/notes");
-        registry.addViewController("notedata")
+        registry.addViewController("/site/notedata")
                 .setViewName("site/notedata");
-//        registry.addViewController("notes")
-//                .setViewName("site/notes");
-
+        registry.addViewController("/site/index1")
+                .setViewName("site/index1");
+        registry.addViewController("/site/index")
+                .setViewName("site/index");
     }
 
 }
