@@ -11,8 +11,6 @@ import java.util.List;
 @Service
 public class NoteServiceImpl implements NoteService {
 
-
-
     private NoteDao noteDao;
 
     public void setNoteDao(NoteDao noteDao) {

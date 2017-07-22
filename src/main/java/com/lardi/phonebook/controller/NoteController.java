@@ -16,7 +16,6 @@ public class NoteController {
     private NoteService noteService;
 
     @Autowired(required = true)
-
     public void setNoteService (NoteService noteService){
         this.noteService= noteService;
     }
