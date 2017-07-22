@@ -26,7 +26,7 @@ public class NoteController {
 
     @RequestMapping(value = "notes", method = RequestMethod.GET)
     public String listNotes(Model model) {
-       // model.addAttribute("note", new Note());
+        model.addAttribute("note", new Note());
         model.addAttribute("listNotes", this.noteService.listNotes());
         return "listNotes";
     }
