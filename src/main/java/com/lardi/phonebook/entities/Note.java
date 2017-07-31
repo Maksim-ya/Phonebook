@@ -12,16 +12,16 @@ public class Note {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "lastName")
+    @Column(name = "lastName",nullable = false)
     private String lastName;
 
-    @Column(name = "firstName")
+    @Column(name = "firstName",nullable = false)
     private String firstName;
 
-    @Column(name = "middleName")
+    @Column(name = "middleName",nullable = false)
     private String middleName;
 
-    @Column(name = "telMobile")
+    @Column(name = "telMobile",nullable = false)
     private String telMobile;
 
     @Column(name = "telDomastic")

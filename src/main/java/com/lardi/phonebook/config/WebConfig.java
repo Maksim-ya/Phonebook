@@ -9,6 +9,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
@@ -48,15 +50,15 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 //
 //    @Override
 //    public void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addRedirectViewController("/", "/site/index1");
+//        registry.addRedirectViewController("/", "index");
 //
-//        registry.addViewController("/site/index1")
-//                .setViewName("site/index1");
+//        registry.addViewController("index")
+//                .setViewName("index");
 //        registry.addViewController("/")
-//                .setViewName("site/index1");
-//        registry.addViewController("site/notedata")
+//                .setViewName("index");
+//        registry.addViewController("notedata")
 //                .setViewName("notedata");
-//        registry.addViewController("site/notes")
+//        registry.addViewController("notes")
 //                .setViewName("notes");
 //    }
 //
@@ -66,6 +68,8 @@ import org.thymeleaf.templateresolver.TemplateResolver;
 
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
+
+
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
