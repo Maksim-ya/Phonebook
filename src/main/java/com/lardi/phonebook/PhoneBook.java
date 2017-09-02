@@ -13,6 +13,11 @@ public class PhoneBook extends  SpringBootServletInitializer {
 		SpringApplication.run(PhoneBook .class, args);
 	}
 
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(PhoneBook.class);
+	}
+
 }
 
 //@SpringBootApplication

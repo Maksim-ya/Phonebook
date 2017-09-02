@@ -73,20 +73,18 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-       registry.addRedirectViewController("/", "/site/login");
+       registry.addRedirectViewController("/", "/login");
 
-        registry.addViewController("/site/notes")
-                .setViewName("site/notes");
-        registry.addViewController("/")
-               .setViewName("site/notes");
-        registry.addViewController("/site/notedata")
-                .setViewName("site/notedata");
+        registry.addViewController("/myNote")
+                .setViewName("myNote");
+        registry.addViewController("/notedata")
+                .setViewName("notedata");
 //        registry.addViewController("notes")
 //                .setViewName("site/notes");
-        registry.addViewController("/site/login")
-                .setViewName("site/login");
-             registry.addViewController("/site/index")
-                .setViewName("site/index");
+        registry.addViewController("/login")
+                .setViewName("login");
+             registry.addViewController("/index")
+                .setViewName("index");
 
     }
 

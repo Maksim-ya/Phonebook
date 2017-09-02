@@ -1,4 +1,4 @@
-package com.lardi.phonebook.entities;
+package com.lardi.phonebook.model;
 
 
 import javax.persistence.*;
@@ -8,20 +8,20 @@ import javax.persistence.*;
 public class Note {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
 
-    @Column(name = "lastName",nullable = false)
+    @Column(name = "lastName")
     private String lastName;
 
-    @Column(name = "firstName",nullable = false)
+    @Column(name = "firstName")
     private String firstName;
 
-    @Column(name = "middleName",nullable = false)
+    @Column(name = "middleName")
     private String middleName;
 
-    @Column(name = "telMobile",nullable = false)
+    @Column(name = "telMobile")
     private String telMobile;
 
     @Column(name = "telDomastic")
