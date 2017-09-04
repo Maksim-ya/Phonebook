@@ -79,8 +79,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 .setViewName("myNote");
         registry.addViewController("/notedata")
                 .setViewName("notedata");
-//        registry.addViewController("notes")
-//                .setViewName("site/notes");
         registry.addViewController("/login")
                 .setViewName("login");
              registry.addViewController("/index")
