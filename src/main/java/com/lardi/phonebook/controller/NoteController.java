@@ -23,20 +23,18 @@ public class NoteController {
         return "myNote";
     }
 
-//    @RequestMapping(value = "/notes", method = RequestMethod.GET)
-//    public ModelAndView notes (ModelAndView modelAndView) {
-//        return modelAndView
-//                .addObject("note",new Note())
-//                .addObject("listNotes", this.noteRepository.findAll());
-//        }
+    @RequestMapping (value = "/myNote/add",method = RequestMethod.POST)
+    public  String addNote(@ModelAttribute ("note") Note note){
 
+        noteRepository.save(note);
 
-    @RequestMapping (value = "/notes/add", method = RequestMethod.POST)
-    public  String addNote(@ModelAttribute("note") Note note){
-        if(note.getId()==0){
-            this.noteRepository.save(note);
-        }
-        return "redirect:/notes";
+        return "redirect:/myNote";
+    }
+
+    @RequestMapping("/remove/{id}")
+    public String removeNote(@PathVariable("id") long id){
+        noteRepository.delete(id);
+        return "redirect:/myNote";
     }
 
     @RequestMapping("edit/{id}")
@@ -46,11 +44,6 @@ public class NoteController {
         return "myNote";
     }
 
-    @RequestMapping("/remove/{id}")
-    public String removeNote(@PathVariable("id") long id){
-        noteRepository.delete(id);
-        return "redirect:/myNote";
-    }
 
     @RequestMapping("notedata/{id}")
     public String noteData(@PathVariable("id") long id , Model model){
