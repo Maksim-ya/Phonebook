@@ -26,7 +26,12 @@ public class NoteController {
     @RequestMapping (value = "/myNote/add",method = RequestMethod.POST)
     public  String addNote(@ModelAttribute ("note") Note note){
 
-        noteRepository.save(note);
+//        if(note.getId()==0){
+//            this.noteRepository.save(note);
+//        }else {
+//            this.noteRepository.update(note.getId());
+//        }
+       noteRepository.save(note);
 
         return "redirect:/myNote";
     }
@@ -40,8 +45,9 @@ public class NoteController {
     @RequestMapping("edit/{id}")
     public  String editNote(@PathVariable("id") long id, Model model){
         model.addAttribute("note",this.noteRepository.findOne(id));
-        //model.addAttribute("listNotes", this.noteService.listNotes());
-        return "myNote";
+        model.addAttribute("notes", this.noteRepository.findAll());
+
+        return "notedata";
     }
 
 

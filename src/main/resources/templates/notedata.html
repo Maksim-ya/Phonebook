@@ -1,42 +1,78 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>NoteData</title>
-
-
-
-</head>
+<!DOCTYPE HTML>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
 <body>
-<h1>Note Details</h1>
+<h1>Notes list</h1>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=0.7"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 
-<table class="table table-striped">
-    <tr>
-        <th width="80">ID</th>
-        <th width="120">Last Name</th>
-        <th width="120">First Name</th>
-        <th width="120">Middle Name</th>
-        <th width="120">Mob.tel.</th>
-        <th width="120">Dom.tel.</th>
-        <th width="120">Address</th>
-        <th width="120">E-mail</th>
-    </tr>
+<h1>Edit a Note</h1>
 
 
+<form  method="post" th:action="@{/myNote/add}" >
 
-    <tr th:each="note : ${listNotes} ">
+    <div class="form-group">
+        <label for="note.id">Id</label>
+        <input type="text" th:field="*{note.id}"class="form-control"    readonly="readonly" id="note.id"  />
+    </div>
+
+    <div class="form-group">
+        <label for="note_lastName">Last Name</label>
+        <input type="text" th:field="*{note.lastName}"
+               class="form-control" name="lastName"  id="note_lastName" />
+    </div>
+
+    <div class="form-group">
+        <label for="note_firstName">First Name</label>
+        <input type="text" th:field="*{note.firstName}" class="form-control" name="firstName"  id="note_firstName" />
+    </div>
+
+    <div class="form-group">
+        <label for="note_middleName">Middle Name</label>
+        <input type="text" th:field="*{note.middleName}" class="form-control" name="middleName" id="note_middleName" />
+    </div>
+
+    <div class="form-group">
+        <label for="note_telMobile">Mobile Telephone</label>
+        <input type="text" th:field="*{note.telMobile}" placeholder="Input a Mobile Telephone here ..."
+               class="form-control" name="telMobile"  id="note_telMobile" />
+    </div>
+
+    <div class="form-group">
+        <label for="note_telDomastic">Domastic Telephone</label>
+        <input type="text" th:field="*{note.telDomastic}"
+               placeholder="Input a Domastic Telephone here ..." class="form-control" name="telDomastic"  id="note_telDomastic" />
+    </div>
 
 
-        <td th:text="${note.id}"></td>
-        <td th:text="${note.lastName}"></td>
-        <td th:text="${note.firstName}"></td>
-        <td th:text="${note.middleName}"></td>
-        <td th:text="${note.telMobile}"></td>
-        <td th:text="${note.telDomastic}"></td>
-        <td th:text="${note.address}"></td>
-        <td th:text="${note.email}"></td>
+    <div class="form-group">
+        <label for="note_address">Address</label>
+        <input type="text" th:field="*{note.address}"
+               placeholder="Input a Address here ..." class="form-control" name="address"  id="note_address" />
+    </div>
 
-    </tr>
-</table>
+    <div class="form-group">
+        <label for="note_email">E-mail</label>
+        <input type="text" th:field="*{note.email}"
+               placeholder="Input a E-mail here ..." class="form-control" name="email" id="note_email" />
+    </div>
+
+
+
+    <button type="reset" class="btn btn-default"  >Reset</button>
+    <button type="submit" class="btn btn-default"  >Edit Note</button>
+
+    <!--<tr align="center">-->
+    <!--<td colspan="2">-->
+
+    <!--<input type="submit" value="Edit Note"/></td>-->
+
+    <!--<td><input type="submit"  value="Add Note"/></td>-->
+
+
+    <!--</tr>-->
+
+</form>
 </body>
 </html>
