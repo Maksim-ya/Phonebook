@@ -2,10 +2,14 @@ package com.lardi.phonebook.controller;
 
 import com.lardi.phonebook.model.Note;
 import com.lardi.phonebook.repository.NoteRepository;
+import com.lardi.phonebook.validator.NoteValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+
+import javax.validation.Valid;
 
 @Controller
 public class NoteController {
@@ -14,6 +18,8 @@ public class NoteController {
     @Autowired
     NoteRepository noteRepository;
 
+    @Autowired
+    NoteValidator noteValidator;
 
 
     @RequestMapping(value = "/myNote", method = RequestMethod.GET)
@@ -24,13 +30,14 @@ public class NoteController {
     }
 
     @RequestMapping (value = "/myNote/add",method = RequestMethod.POST)
-    public  String addNote(@ModelAttribute ("note") Note note){
+    public  String addNote( @Valid @ModelAttribute ("note")  Note note, BindingResult bindingResult){
+        noteValidator.validate(note.getTelMobile(),bindingResult);
 
-//        if(note.getId()==0){
-//            this.noteRepository.save(note);
-//        }else {
-//            this.noteRepository.update(note.getId());
-//        }
+        if(bindingResult.hasErrors()){
+            return "myNote/add";
+        }
+
+
        noteRepository.save(note);
 
         return "redirect:/myNote";

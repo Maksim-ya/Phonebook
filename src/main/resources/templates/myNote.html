@@ -48,7 +48,7 @@
 
 
 
-<form  method="post" th:action="@{/myNote/add} " >
+<form  method="post"  th:action="@{/myNote/add}" th:object="${note}"  >
 
     <div class="form-group">
         <label for="note.id">Id</label>
@@ -72,7 +72,9 @@
 
     <div class="form-group">
         <label for="note_telMobile">Mobile Telephone</label>
-        <input type="text" placeholder="Input a Mobile Telephone here ..." class="form-control" name="telMobile"  id="note_telMobile" />
+         <input type="text" th:object="*{telMobile}"  placeholder="Input a Mobile Telephone here ..."
+                    class="form-control" name="telMobile"  id="note_telMobile" />
+        <td  th:if="${#fields.hasErrors('telMobile')}"th:errors="*{telMobile}" > Error </td>
     </div>
 
     <div class="form-group">
