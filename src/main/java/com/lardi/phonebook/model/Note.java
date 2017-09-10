@@ -2,6 +2,7 @@ package com.lardi.phonebook.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "notes")
@@ -11,6 +12,8 @@ public class Note {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
+
+
 
     @Column(name = "lastName")
     private String lastName;
