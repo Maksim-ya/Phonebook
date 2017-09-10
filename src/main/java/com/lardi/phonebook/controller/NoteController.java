@@ -24,17 +24,18 @@ public class NoteController {
 
     @RequestMapping(value = "/myNote", method = RequestMethod.GET)
     public String listOfNotes(Model model) {
-
+        model.addAttribute("note",new Note());
         model.addAttribute("notes", noteRepository.findAll());
         return "myNote";
     }
 
     @RequestMapping (value = "/myNote/add",method = RequestMethod.POST)
-    public  String addNote( @Valid @ModelAttribute ("note")  Note note, BindingResult bindingResult){
-        noteValidator.validate(note.getTelMobile(),bindingResult);
+    public  String addNote( @ModelAttribute ("note")  Note note,Model model, BindingResult bindingResult){
+        noteValidator.validate(note,bindingResult);
 
         if(bindingResult.hasErrors()){
-            return "myNote/add";
+            model.addAttribute("notes", noteRepository.findAll());
+            return "/myNote";
         }
 
 
