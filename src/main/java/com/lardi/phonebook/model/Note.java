@@ -13,8 +13,6 @@ public class Note {
     @Column(name = "id")
     private long id;
 
-
-
     @Column(name = "lastName")
     private String lastName;
 

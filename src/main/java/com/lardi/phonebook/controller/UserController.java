@@ -1,23 +1,12 @@
-//package com.lardi.phonebook.controller;
+package com.lardi.phonebook.controller;
 //
-//import net.proselyte.springsecurityapp.model.User;
-//import net.proselyte.springsecurityapp.service.SecurityService;
-//import net.proselyte.springsecurityapp.service.UserService;
-//import net.proselyte.springsecurityapp.validator.UserValidator;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
+
 //import org.springframework.ui.Model;
 //import org.springframework.validation.BindingResult;
 //import org.springframework.web.bind.annotation.ModelAttribute;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
 //
-///**
-// * Controller for {@link net.proselyte.springsecurityapp.model.User}'s pages.
-// *
-// * @author Eugene Suleimanov
-// * @version 1.0
-// */
 //
 //@Controller
 //public class UserController {
