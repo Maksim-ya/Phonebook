@@ -13,9 +13,11 @@ public class User {
     @Column(name = "user_id")
     private long id;
 
+    @Column(name = "login")
+    private String login;
+    // @Length(min = 5, message = "*Your password must have at least 5 characters")
     @Column(name = "password")
-   // @Length(min = 5, message = "*Your password must have at least 5 characters")
-    @Transient
+   // @Transient
     private String password;
 
     @Column(name = "allname")
@@ -28,6 +30,14 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {

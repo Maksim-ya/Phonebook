@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=0.7"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+<style>
+    span.error {
+        color: red;
+    }
+</style>
+
+<form th:action="@{/}" method="get">
+    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
+</form>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form autocomplete="off" action="#" th:action="@{/registration}"
+                  th:object="${userForm}" method="post" class="form-horizontal"
+                  role="form">
+                <h2>Registration Form</h2>
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input type="text" th:field="*{login}" placeholder="Login"
+                               class="form-control" />
+                        <td> <span class="error"><label th:if="${#fields.hasErrors('login')}"
+                                      th:text="#{size.message}" class="error" ></label></span> </td>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input type="password" th:field="*{password}"
+                               placeholder="Password" class="form-control" />
+                        <td> <span class="error"><label th:if="${#fields.hasErrors('password')}"
+                                         th:text="#{size.message}" class="error" ></label></span> </td>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input type="text" th:field="*{allname}" placeholder="FullName"
+                               class="form-control" />
+                        <td> <span class="error"><label th:if="${#fields.hasErrors('allname')}"
+                                     th:text="#{size.message}" class="error" ></label></span> </td>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <button type="submit" class="btn btn-primary btn-block">Register User</button>
+                    </div>
+                </div>
+
+                <span th:utext="${successMessage}"></span>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

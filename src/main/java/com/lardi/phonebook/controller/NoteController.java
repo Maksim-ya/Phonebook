@@ -36,8 +36,6 @@ public class NoteController {
             model.addAttribute("notes", noteRepository.findAll());
             return "/myNote";
         }
-
-
        noteRepository.save(note);
 
         return "redirect:/myNote";
