@@ -2,6 +2,7 @@ package com.lardi.phonebook.controller;
 
 
 import com.lardi.phonebook.repository.UserRepository;
+import com.lardi.phonebook.service.UserServiceImpl;
 import com.lardi.phonebook.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,7 @@ import com.lardi.phonebook.model.User;
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserServiceImpl userService;
 
 
     @Autowired
@@ -37,7 +38,7 @@ public class UserController {
             return "registration";
         }
 
-        userRepository.save(user);
+        userService.save(user);
 
 
 //        securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
