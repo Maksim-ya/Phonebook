@@ -2,15 +2,17 @@ package com.lardi.phonebook.model;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
+    @Column(name = "id")
     private long id;
 
     @Column(name = "login")
@@ -22,6 +24,24 @@ public class User {
 
     @Column(name = "allname")
     private String allname;
+
+
+
+//    private Set<Note> noteEntities = new HashSet<>();
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    public Set<Note> getnoteEntities() {
+//        return this.noteEntities;
+//    }
+//
+//    public void setNoteEntities(Set<Note> noteEntities) {
+//        this.noteEntities = noteEntities;
+//    }
+//
+//    public void addNoteEntities(Note note) {
+//        note.setUser(this);
+//        this.noteEntities.add(note);
+//    }
+
 
 
     public long getId() {

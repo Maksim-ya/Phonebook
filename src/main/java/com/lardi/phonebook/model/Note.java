@@ -34,6 +34,26 @@ public class Note {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "login")
+    private String login;
+
+
+
+
+//    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id", referencedColumnName = "id")
+//    public User getUser() {
+//        return this.user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+//
+//
+
+
     public long getId() {
         return id;
     }
@@ -96,6 +116,14 @@ public class Note {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     @Override
