@@ -2,7 +2,7 @@ package com.lardi.phonebook.model;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "notes")
@@ -39,10 +39,10 @@ public class Note {
 
 
 
-
+//
 //    private User user;
 //    @ManyToOne
-//    @JoinColumn(name = "user_id", referencedColumnName = "id")
+//    @JoinColumn(name = "user")
 //    public User getUser() {
 //        return this.user;
 //    }
@@ -50,8 +50,8 @@ public class Note {
 //    public void setUser(User user) {
 //        this.user = user;
 //    }
-//
-//
+
+
 
 
     public long getId() {

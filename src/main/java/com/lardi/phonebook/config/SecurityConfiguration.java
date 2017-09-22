@@ -29,8 +29,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.
                 jdbcAuthentication()
                 .dataSource(dataSource)
-                .usersByUsernameQuery("select  login, password,'true' as enabled from user where login=?")
-                .authoritiesByUsernameQuery("select login, 'ROLE_USER' from user where login=?")
+                .usersByUsernameQuery("select  login, password,'true' as enabled from users where login=?")
+                .authoritiesByUsernameQuery("select login, 'ROLE_USER' from users where login=?")
                 .passwordEncoder(bCryptPasswordEncoder);
 
     }
@@ -46,7 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 // .failureUrl("/login?error=true")
-                .defaultSuccessUrl("/index")
+                .defaultSuccessUrl("/myNote")
                 .usernameParameter("login")
                 .passwordParameter("password")
                 .permitAll()

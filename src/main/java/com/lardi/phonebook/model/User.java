@@ -28,7 +28,7 @@ public class User {
 
 
 //    private Set<Note> noteEntities = new HashSet<>();
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
 //    public Set<Note> getnoteEntities() {
 //        return this.noteEntities;
 //    }

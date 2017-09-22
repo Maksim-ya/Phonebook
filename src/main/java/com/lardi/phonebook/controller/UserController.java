@@ -60,16 +60,4 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(value = {"/index"}, method = RequestMethod.GET)
-    public String welcome(Model model) {
-        return "index";
-    }
-//
-//    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-//    public String admin(Model model) {
-//        return "admin";
-//    }
-
-
-
 }

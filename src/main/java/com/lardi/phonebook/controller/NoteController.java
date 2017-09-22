@@ -2,6 +2,8 @@ package com.lardi.phonebook.controller;
 
 import com.lardi.phonebook.model.Note;
 import com.lardi.phonebook.repository.NoteRepository;
+import com.lardi.phonebook.repository.UserRepository;
+import com.lardi.phonebook.service.UserServiceImpl;
 import com.lardi.phonebook.validator.NoteValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,10 @@ import org.springframework.validation.BindingResult;
 @Controller
 public class NoteController {
 
+    Note note;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     NoteRepository noteRepository;
@@ -24,6 +30,7 @@ public class NoteController {
     @RequestMapping(value = "/myNote", method = RequestMethod.GET)
     public String listOfNotes(Model model) {
         model.addAttribute("note",new Note());
+//        if (userRepository.equals(note.getLogin())){
         model.addAttribute("notes", noteRepository.findAll());
         return "myNote";
     }
