@@ -26,16 +26,16 @@ public class User {
     private String allname;
 
 
+    @OneToMany( mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Note> noteEntities = new HashSet<>();
 
-//    private Set<Note> noteEntities = new HashSet<>();
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//    public Set<Note> getnoteEntities() {
-//        return this.noteEntities;
-//    }
-//
-//    public void setNoteEntities(Set<Note> noteEntities) {
-//        this.noteEntities = noteEntities;
-//    }
+    public Set<Note> getnoteEntities() {
+        return this.noteEntities;
+    }
+
+    public void setNoteEntities(Set<Note> noteEntities) {
+        this.noteEntities = noteEntities;
+    }
 //
 //    public void addNoteEntities(Note note) {
 //        note.setUser(this);

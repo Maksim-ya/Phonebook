@@ -2,7 +2,6 @@ package com.lardi.phonebook.model;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "notes")
@@ -34,14 +33,18 @@ public class Note {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "login")
-    private String login;
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
+    public User getUser() {
+        return user;
+    }
 
-
-
-//    private User user;
-//    @ManyToOne
+    public void setUser(User user) {
+        this.user = user;
+    }
+    // @ManyToOne
 //    @JoinColumn(name = "user_id", referencedColumnName = "id")
 //    public User getUser() {
 //        return this.user;
@@ -118,13 +121,7 @@ public class Note {
         this.email = email;
     }
 
-    public String getLogin() {
-        return login;
-    }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
 
     @Override
     public String toString() {
