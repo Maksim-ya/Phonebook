@@ -33,7 +33,7 @@ public class NoteController {
     }
 
     @RequestMapping(value = "/myNote/add", method = RequestMethod.POST)
-    public String addNote(@ModelAttribute("note") User user, Note note, Model model, BindingResult bindingResult) {
+    public String addNote(@ModelAttribute("note")  Note note, Model model, BindingResult bindingResult) {
         noteValidator.validate(note, bindingResult);
 
         if (bindingResult.hasErrors()) {
