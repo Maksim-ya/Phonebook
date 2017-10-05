@@ -26,15 +26,15 @@ public class User {
     private String allname;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
-    private Set<Note> noteEntities = new HashSet<>();
+    @OneToMany( mappedBy = "user")
+    private Set<Note> notes = new HashSet<>();
 
     public Set<Note> getnoteEntities() {
-        return this.noteEntities;
+        return this.notes;
     }
 
     public void setNoteEntities(Set<Note> noteEntities) {
-        this.noteEntities = noteEntities;
+        this.notes = noteEntities;
     }
 
 //    public void addNoteEntities(Note note) {

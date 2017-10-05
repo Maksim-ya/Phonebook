@@ -2,10 +2,12 @@ package com.lardi.phonebook.controller;
 
 import com.lardi.phonebook.model.Note;
 import com.lardi.phonebook.repository.NoteRepository;
-import com.lardi.phonebook.repository.UserRepository;
-import com.lardi.phonebook.service.UserServiceImpl;
 import com.lardi.phonebook.validator.NoteValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +17,6 @@ import org.springframework.validation.BindingResult;
 @Controller
 public class NoteController {
 
-    Note note;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Autowired
     NoteRepository noteRepository;
@@ -43,6 +41,18 @@ public class NoteController {
             model.addAttribute("notes", noteRepository.findAll());
             return "/myNote";
         }
+
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        if ((!(auth instanceof AnonymousAuthenticationToken)) && auth != null) {
+//            UserDetails userDetail = (UserDetails) auth.getPrincipal();
+//
+//            if (userDetail != null) {
+//                model.addAttribute("note_user_id", userDetail.getUsername());
+//            } else {
+//                model.addAttribute("note_user_id", "ololo");
+//            }
+//        }
+
        noteRepository.save(note);
 
         return "redirect:/myNote";
