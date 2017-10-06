@@ -1,6 +1,8 @@
 package com.lardi.phonebook.model;
 
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,15 +29,17 @@ public class User {
     private String allname;
 
 
+
+
     @OneToMany( mappedBy = "user")
     private Set<Note> notes = new HashSet<>();
 
-    public Set<Note> getnoteEntities() {
-        return this.notes;
+    public Set<Note> getNotes() {
+        return notes;
     }
 
-    public void setNoteEntities(Set<Note> noteEntities) {
-        this.notes = noteEntities;
+    public void setNotes(Set<Note> notes) {
+        this.notes = notes;
     }
 
 //    public void addNoteEntities(Note note) {

@@ -2,6 +2,10 @@ package com.lardi.phonebook.controller;
 
 import com.lardi.phonebook.model.Note;
 import com.lardi.phonebook.repository.NoteRepository;
+
+
+import com.lardi.phonebook.repository.UserRepository;
+import com.lardi.phonebook.service.SecurityServiceImpl;
 import com.lardi.phonebook.validator.NoteValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -19,7 +23,17 @@ public class NoteController {
 
 
     @Autowired
+    UserRepository userRepository;
+
+    @Autowired
     NoteRepository noteRepository;
+
+    @Autowired
+    SecurityServiceImpl securityService;
+
+
+//    @Autowired
+//    SecurityService securityService;
 
     @Autowired
     NoteValidator noteValidator;
@@ -42,16 +56,18 @@ public class NoteController {
             return "/myNote";
         }
 
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        if ((!(auth instanceof AnonymousAuthenticationToken)) && auth != null) {
-//            UserDetails userDetail = (UserDetails) auth.getPrincipal();
+//       String s="jgkds" ;
+
+
+
+//       s=securityService.findLoggedInUserId();
 //
-//            if (userDetail != null) {
-//                model.addAttribute("note_user_id", userDetail.getUsername());
-//            } else {
-//                model.addAttribute("note_user_id", "ololo");
-//            }
-//        }
+//        System.out.println(s);
+
+
+        model.addAttribute("user", securityService.findLoggedInUserId());
+
+
 
        noteRepository.save(note);
 
