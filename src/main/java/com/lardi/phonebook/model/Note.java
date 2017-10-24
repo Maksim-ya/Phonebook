@@ -43,15 +43,6 @@ public class Note {
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private  User user;
 
-//    private String userLogin;
-
-//    public String getUserLogin() {
-//        return userLogin;
-//    }
-//
-//    public void setUserLogin(String userLogin) {
-//        this.userLogin = userLogin;
-//    }
 
     public long getId() {
         return id;

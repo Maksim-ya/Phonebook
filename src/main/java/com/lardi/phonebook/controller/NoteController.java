@@ -1,6 +1,7 @@
 package com.lardi.phonebook.controller;
 
 import com.lardi.phonebook.model.Note;
+import com.lardi.phonebook.model.User;
 import com.lardi.phonebook.repository.NoteRepository;
 
 
@@ -8,10 +9,6 @@ import com.lardi.phonebook.repository.UserRepository;
 import com.lardi.phonebook.service.SecurityServiceImpl;
 import com.lardi.phonebook.validator.NoteValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,8 +29,6 @@ public class NoteController {
     SecurityServiceImpl securityService;
 
 
-//    @Autowired
-//    SecurityService securityService;
 
     @Autowired
     NoteValidator noteValidator;
@@ -56,19 +51,14 @@ public class NoteController {
             return "/myNote";
         }
 
-//       String s="jgkds" ;
-
-
-
-//       s=securityService.findLoggedInUserId();
-//
-//        System.out.println(s);
 
 
 //        model.addAttribute("user", securityService.findLoggedInUserId());
 
-        note.setUserId(securityService.findUserByLogin(securityService.findLoggedInUserId()).getId());
-       noteRepository.save(note);
+        String userLogin = securityService.findLoggedInUserLogin();
+        User user = securityService.findUserByLogin(userLogin);
+        note.setUserId(user.getId());
+        noteRepository.save(note);
 
         return "redirect:/myNote";
     }

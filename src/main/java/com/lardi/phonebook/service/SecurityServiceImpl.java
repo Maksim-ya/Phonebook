@@ -4,14 +4,12 @@ package com.lardi.phonebook.service;
 import com.lardi.phonebook.model.User;
 import com.lardi.phonebook.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+
 import java.util.Optional;
 
 @Service
@@ -23,7 +21,7 @@ public class SecurityServiceImpl implements SecurityService {
 
 
     @Override
-    public String findLoggedInUserId() {
+    public String findLoggedInUserLogin() {
         Object userDetails = SecurityContextHolder
                 .getContext().getAuthentication().getPrincipal();
         if (userDetails instanceof UserDetails) {
