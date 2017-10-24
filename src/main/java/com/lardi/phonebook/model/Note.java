@@ -13,6 +13,9 @@ public class Note {
     @Column(name = "id")
     private long id;
 
+    @Column(name = "user_id")
+    private long userId;
+
     @Column(name = "lastName")
     private String lastName;
 
@@ -37,19 +40,18 @@ public class Note {
 
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private  User user;
 
-    public User getUser() {
-        return this.user;
-    }
+//    private String userLogin;
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-
-
+//    public String getUserLogin() {
+//        return userLogin;
+//    }
+//
+//    public void setUserLogin(String userLogin) {
+//        this.userLogin = userLogin;
+//    }
 
     public long getId() {
         return id;
@@ -57,6 +59,14 @@ public class Note {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getLastName() {

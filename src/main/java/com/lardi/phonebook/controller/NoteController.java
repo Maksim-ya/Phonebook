@@ -65,10 +65,9 @@ public class NoteController {
 //        System.out.println(s);
 
 
-        model.addAttribute("user", securityService.findLoggedInUserId());
+//        model.addAttribute("user", securityService.findLoggedInUserId());
 
-
-
+        note.setUserId(securityService.findUserByLogin(securityService.findLoggedInUserId()).getId());
        noteRepository.save(note);
 
         return "redirect:/myNote";

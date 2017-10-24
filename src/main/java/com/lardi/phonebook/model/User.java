@@ -42,10 +42,6 @@ public class User {
         this.notes = notes;
     }
 
-//    public void addNoteEntities(Note note) {
-//        note.setUser(this);
-//        this.noteEntities.add(note);
-//    }
 
 
 
