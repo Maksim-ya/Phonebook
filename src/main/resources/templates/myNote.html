@@ -2,7 +2,7 @@
 <html   xmlns="http://www.w3.org/1999/xhtml"
         xmlns:th="http://www.thymeleaf.org">
 <body>
-<h1>Notes list</h1>
+
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=0.7"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
@@ -10,7 +10,19 @@
     span.error {
         color: red;
     }
+    span.logout-button {
+
+        float:right;
+    }
 </style>
+
+<form th:action="@{/logout}" method="post">
+    <span class="logout-button"> <button  type="submit" class="btn btn-default" > Sign Out</button> </span>
+</form>
+
+
+<h1>Notes list</h1>
+
 <table class="table table-striped table-hover">
     <thead>
     <tr>
