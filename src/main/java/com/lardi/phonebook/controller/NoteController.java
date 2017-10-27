@@ -28,8 +28,6 @@ public class NoteController {
     @Autowired
     SecurityServiceImpl securityService;
 
-
-
     @Autowired
     NoteValidator noteValidator;
 
